@@ -10,7 +10,7 @@ $size=$_GET["size"];
 syslog(LOG_WARNING, "Object URL $object_url");
 syslog(LOG_WARNING, "Size $size");
 
-$imageUrl="gs://YOUR-PROJECT-ID.appspot.com/bucket_name/$imageName";
+$imageUrl="gs://ve.appspot.com/bucket_name/$imageName";
 $resized_image_url = CloudStorageTools::getImageServingUrl($imageUrl,['size' => $size, 'crop' => false]);
 syslog(LOG_WARNING, "Output Url $resized_image_url");
 header("location: $resized_image_url");
