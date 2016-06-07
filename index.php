@@ -10,7 +10,7 @@ $size=intval($_GET["size"]);
 syslog(LOG_WARNING, "Object URL $object_url");
 syslog(LOG_WARNING, "Size $size");
 
-$bucket="gs://YOUR-PROJECT-ID.appspot.com/bucket_name/";
+$bucket="gs://YOUR-PROJECT-I.appspot.com/bucket_name/";
 $object_image_url = CloudStorageTools::getImageServingUrl($object_url,['size' => $size, 'crop' => false]);
 syslog(LOG_WARNING, "Output Url $object_image_url");
 header("location: $object_image_url");
