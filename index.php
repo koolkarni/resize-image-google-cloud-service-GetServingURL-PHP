@@ -5,15 +5,15 @@ require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
 use google\appengine\api\cloud_storage\CloudStorageTools;
 syslog(LOG_WARNING, "Imported Cloud Storage Tools");
 //var_dump( $_GET);
-$object_url=$_GET["image"];
-$size=intval($_GET["size"]);
+$imageName=$_GET["image"];
+$size=$_GET["size"];
 syslog(LOG_WARNING, "Object URL $object_url");
 syslog(LOG_WARNING, "Size $size");
 
-$bucket="gs://vegme1234.appspot.com/images/";
-$object_image_url = CloudStorageTools::getImageServingUrl($object_url,['size' => $size, 'crop' => false]);
-syslog(LOG_WARNING, "Output Url $object_image_url");
-header("location: $object_image_url");
+$imageUrl="gs://vegme1234.appspot.com/images/$imageName";
+$resized_image_url = CloudStorageTools::getImageServingUrl($imageUrl,['size' => $size, 'crop' => false]);
+syslog(LOG_WARNING, "Output Url $resized_image_url");
+header("location: $resized_image_url");
 
 closelog();
 ?>
