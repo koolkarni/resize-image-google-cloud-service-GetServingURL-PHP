@@ -6,7 +6,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 syslog(LOG_WARNING, "Imported Cloud Storage Tools");
 //var_dump( $_GET);
 $imageName=$_GET["image"];
-$size=$_GET["size"];
+$size=intval($_GET["size"]);
+
 syslog(LOG_WARNING, "Object URL $object_url");
 syslog(LOG_WARNING, "Size $size");
 
